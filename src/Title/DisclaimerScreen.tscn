@@ -1,14 +1,25 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Fonts/X8bitmapfont.fnt" type="BitmapFont" id=1]
 [ext_resource path="res://src/Title/title_bg.png" type="Texture" id=2]
-[ext_resource path="res://src/Title/DisclaimerScreen.gd" type="Script" id=3]
-[ext_resource path="res://src/Options/Options.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Title/DisclaimerScreen.cs" type="Script" id=3]
 
-[node name="DisclaimerScreen" type="Node2D"]
+[node name="DisclaimerScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 3 )
 
-[node name="inspired" type="Label" parent="."]
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Inspired" type="Label" parent="."]
 margin_left = 72.0
 margin_top = 38.0
 margin_right = 325.0
@@ -20,17 +31,8 @@ text = "DISCLAIMER1"
 align = 1
 autowrap = true
 
-[node name="bg" type="Sprite" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 199, 112 )
-z_index = -1000
-texture = ExtResource( 2 )
-
-[node name="fade" type="Sprite" parent="."]
-modulate = Color( 0, 0, 0, 0 )
+[node name="Fade" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 198, 112 )
 z_index = 2
 texture = ExtResource( 2 )
-
-[node name="OptionsMenu" parent="." instance=ExtResource( 4 )]
-visible = false
