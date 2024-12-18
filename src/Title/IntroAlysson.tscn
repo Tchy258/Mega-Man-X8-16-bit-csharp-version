@@ -4,8 +4,8 @@
 [ext_resource path="res://src/Effects/Textures/alysson_signature.png" type="Texture" id=2]
 [ext_resource path="res://src/Title/title_bg.png" type="Texture" id=3]
 [ext_resource path="res://addons/PaletteSwap/PaletteSwap.gdshader" type="Shader" id=4]
-[ext_resource path="res://src/DialogSystem/font_colors/Neutral.png" type="Texture" id=5]
-[ext_resource path="res://src/Title/signature.gd" type="Script" id=6]
+[ext_resource path="res://src/Title/IntroAlysson.cs" type="Script" id=5]
+[ext_resource path="res://src/DialogSystem/font_colors/Neutral.png" type="Texture" id=6]
 [ext_resource path="res://src/Effects/Textures/twitch_icon.png" type="Texture" id=7]
 [ext_resource path="res://src/Sounds/OST - IntroJingle.ogg" type="AudioStream" id=8]
 
@@ -13,19 +13,28 @@
 shader = ExtResource( 4 )
 shader_param/skip_first_row = true
 shader_param/use_palette_alpha = false
-shader_param/fps = 1.0
-shader_param/palette = ExtResource( 5 )
+shader_param/fps = 0.0
+shader_param/palette = ExtResource( 6 )
 
 [node name="SignatureScreen" type="Node2D"]
-
-[node name="signature" type="Sprite" parent="."]
-position = Vector2( 203, 112 )
-texture = ExtResource( 2 )
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 color1 = Color( 0.784314, 0.360784, 0.0784314, 1 )
 color2 = Color( 0.807843, 0.682353, 0.305882, 1 )
 
-[node name="signature2" type="Label" parent="."]
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 398.0
+margin_bottom = 224.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Signature" type="Sprite" parent="."]
+position = Vector2( 203, 112 )
+texture = ExtResource( 2 )
+
+[node name="ChannelName" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0.733333 )
 material = SubResource( 1 )
 margin_left = 136.0
@@ -37,11 +46,11 @@ custom_fonts/font = ExtResource( 1 )
 text = "AlyssonDaPaz"
 align = 1
 
-[node name="icon" type="Sprite" parent="signature2"]
+[node name="Icon" type="Sprite" parent="ChannelName"]
 position = Vector2( 18, 9 )
 texture = ExtResource( 7 )
 
-[node name="by" type="Label" parent="."]
+[node name="MadeBy" type="Label" parent="."]
 material = SubResource( 1 )
 margin_left = 131.0
 margin_top = 38.0
@@ -52,18 +61,12 @@ custom_fonts/font = ExtResource( 1 )
 text = "MADE_BY"
 align = 1
 
-[node name="bg" type="Sprite" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 199, 112 )
-z_index = -1000
-texture = ExtResource( 3 )
-
-[node name="fade" type="Sprite" parent="."]
+[node name="Fade" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 0 )
 position = Vector2( 198, 112 )
 z_index = 2
 texture = ExtResource( 3 )
 
-[node name="jingle" type="AudioStreamPlayer" parent="."]
+[node name="Jingle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 bus = "Music"
