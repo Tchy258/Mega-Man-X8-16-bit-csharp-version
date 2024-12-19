@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Fonts/X8bitmapfont.fnt" type="BitmapFont" id=1]
 [ext_resource path="res://src/Effects/Textures/alysson_signature.png" type="Texture" id=2]
@@ -16,10 +16,143 @@ shader_param/use_palette_alpha = false
 shader_param/fps = 0.0
 shader_param/palette = ExtResource( 6 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "FadeIn"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Signature:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.3, 2.9, 3.8, 6, 6.7, 7.4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0.784314, 0.360784, 0.0784314, 1 ), Color( 0.807843, 0.682353, 0.305882, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.807843, 0.682353, 0.305882, 1 ), Color( 0.784314, 0.360784, 0.0784314, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ChannelName:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 4.5, 6, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MadeBy:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 6, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2.5, 9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "SetAbleToExit"
+}, {
+"args": [  ],
+"method": "NextScreen"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Jingle:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6, 7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -50.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "FadeOut"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Signature:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.3, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.807843, 0.682353, 0.305882, 1 ), Color( 0.784314, 0.360784, 0.0784314, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ChannelName:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MadeBy:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "NextScreen"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Jingle:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -50.0 ]
+}
+
 [node name="SignatureScreen" type="Node2D"]
 script = ExtResource( 5 )
-color1 = Color( 0.784314, 0.360784, 0.0784314, 1 )
-color2 = Color( 0.807843, 0.682353, 0.305882, 1 )
 
 [node name="BG" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -31,11 +164,12 @@ size_flags_vertical = 3
 color = Color( 0, 0, 0, 1 )
 
 [node name="Signature" type="Sprite" parent="."]
+modulate = Color( 0.871895, 0.788235, 0.537255, 1 )
 position = Vector2( 203, 112 )
 texture = ExtResource( 2 )
 
 [node name="ChannelName" type="Label" parent="."]
-modulate = Color( 1, 1, 1, 0.733333 )
+modulate = Color( 0.566667, 0.566667, 0.566667, 1 )
 material = SubResource( 1 )
 margin_left = 136.0
 margin_top = 167.0
@@ -69,4 +203,10 @@ texture = ExtResource( 3 )
 
 [node name="Jingle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+autoplay = true
 bus = "Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "FadeIn"
+anims/FadeIn = SubResource( 2 )
+anims/FadeOut = SubResource( 3 )
