@@ -61,6 +61,7 @@ __meta__ = {
 }
 
 [node name="Inspired" type="Label" parent="."]
+modulate = Color( 0, 0, 0.54902, 0 )
 margin_left = 72.0
 margin_top = 38.0
 margin_right = 325.0
@@ -73,13 +74,13 @@ align = 1
 autowrap = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Fade"
 anims/Fade = SubResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2

@@ -1381,7 +1381,7 @@ analog_down_right={
 
 [locale]
 
-test="br"
+test="en"
 translation_remaps={
 }
 translations=PoolStringArray( "res://src/Localization/test1.br.translation", "res://src/Localization/test1.en.translation", "res://src/Localization/test1.es.translation", "res://src/Localization/test1.pr.translation" )
@@ -1395,10 +1395,6 @@ project/assembly_name="Mega Man X8 16-bit"
 
 limits/debugger_stdout/max_messages_per_frame=300
 limits/debugger_stdout/max_errors_per_second=500
-
-[node]
-
-name_casing=1
 
 [physics]
 
