@@ -1050,7 +1050,8 @@ Event="*res://Event.gd"
 GatewayManager="*res://src/Levels/Gateway/GatewayManager.gd"
 BossRNG="*res://BossRNG.gd"
 IGT="*res://IGT.gd"
-UserDataFile="*res://src/Scripts/UserDataFile.cs"
+UserDataFile="*res://src/Autoloads/UserDataFile.cs"
+PersistentMusic="*res://src/Autoloads/PersistentMusic.cs"
 
 [debug]
 

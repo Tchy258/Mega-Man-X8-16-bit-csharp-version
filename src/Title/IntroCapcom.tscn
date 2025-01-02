@@ -1,39 +1,209 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Sounds/FX - Capcom Logo.ogg" type="AudioStream" id=1]
-[ext_resource path="res://src/Title/title_bg.png" type="Texture" id=2]
-[ext_resource path="res://src/Title/IntroCapcom.gd" type="Script" id=3]
+[ext_resource path="res://src/Title/IntroCapcom.cs" type="Script" id=2]
 [ext_resource path="res://src/Title/capcom_logo.res" type="SpriteFrames" id=4]
 [ext_resource path="res://src/Fonts/X8bitmapfont.fnt" type="BitmapFont" id=5]
-[ext_resource path="res://src/Title/IntroAnim.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Sounds/OST - MainTheme.ogg" type="AudioStream" id=7]
-[ext_resource path="res://src/Options/MainMenu.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/Title/theme_music.gd" type="Script" id=9]
-[ext_resource path="res://src/Options/pulse.gd" type="Script" id=10]
-[ext_resource path="res://src/Title/title_gradient_bg.png" type="Texture" id=11]
-[ext_resource path="res://src/Title/title_electronics_bg.png" type="Texture" id=12]
 
-[node name="CapcomLogo" type="Node2D"]
+[sub_resource type="Animation" id=1]
+resource_name = "FadeIn"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CapcomLogo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.3, 2.65, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 8.83032e-08 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InspiredBy:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.35, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0.54902, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Fade:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 4.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "SetEnding"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CapcomLogo:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CapcomLogo:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 2.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("AnimationPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 5.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "FadeOut", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CapcomSound:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( -0.2, 0.5, 5.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Fade:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Fade:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "NextScreen"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Fade:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Fade:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="CapcomLogo" type="Control"]
 pause_mode = 2
-script = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
 
-[node name="black" type="Sprite" parent="."]
-visible = false
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 198, 112 )
-z_index = 2
-texture = ExtResource( 2 )
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="capcom_logo" type="AnimatedSprite" parent="."]
+[node name="CapcomLogo" type="AnimatedSprite" parent="."]
 position = Vector2( 197, 108 )
 frames = ExtResource( 4 )
-animation = "idle"
+animation = "shine"
+playing = true
 
-[node name="capcom_sound" type="AudioStreamPlayer" parent="."]
+[node name="CapcomSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 bus = "SFX"
 
-[node name="inspired" type="Label" parent="."]
+[node name="InspiredBy" type="Label" parent="."]
 margin_left = 133.0
 margin_top = 81.0
 margin_right = 263.0
@@ -44,47 +214,29 @@ custom_fonts/font = ExtResource( 5 )
 text = "INSPIRED_BY"
 align = 1
 
-[node name="IntroAnim" parent="." instance=ExtResource( 6 )]
-pause_mode = 1
-z_index = -20
-z_as_relative = false
-
-[node name="theme_music" type="AudioStreamPlayer" parent="."]
-pause_mode = 2
-stream = ExtResource( 7 )
-volume_db = -8.0
-bus = "Music"
-script = ExtResource( 9 )
-play_on_start = false
-
-[node name="MainMenu" parent="." instance=ExtResource( 8 )]
-visible = false
-
-[node name="bg2_mask" type="Light2D" parent="."]
-position = Vector2( 199, 112 )
-texture = ExtResource( 12 )
-mode = 3
-range_item_cull_mask = 512
-script = ExtResource( 10 )
-
-[node name="bg2" type="Sprite" parent="."]
-visible = false
-light_mask = 512
-position = Vector2( 198, 112 )
-scale = Vector2( 1e-05, 1e-05 )
-z_index = -3
-texture = ExtResource( 11 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 396, 224 )
-
-[node name="blackness2" type="Sprite" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 199, 112 )
-z_index = -1000
-texture = ExtResource( 2 )
-
 [node name="menuButton" type="MenuButton" parent="."]
 margin_right = 398.0
 margin_bottom = 223.0
 
-[connection signal="button_down" from="menuButton" to="." method="_on_menuButton_button_down"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "FadeIn"
+anims/FadeIn = SubResource( 1 )
+anims/FadeOut = SubResource( 3 )
+anims/RESET = SubResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="pressed" from="menuButton" to="." method="OnMenuButtonPressed"]
