@@ -33,12 +33,20 @@ func _Update(_delta):
 				if timer > 1.5:
 					character.play_animation_backwards("beam_in")
 					victoring = true
+					if IGT.can_split:
+						IGT.calculate_total_time()
+						IGT.send_command("split_command")
+						IGT.can_split = false
 		
 		if victory_pose_and_music:
 			if timer > stage_clear_song_duration:
 				play_animation_once("victory")
 				victory_sound.play()
 				victoring = true
+				if IGT.can_split:
+						IGT.calculate_total_time()
+						IGT.send_command("split_command")
+						IGT.can_split = false
 
 	if ascending:
 		animatedSprite.global_position.y -= beam_speed * _delta
