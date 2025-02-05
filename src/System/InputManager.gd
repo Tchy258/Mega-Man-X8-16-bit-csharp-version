@@ -117,7 +117,7 @@ func get_default_key(action, old_event) -> InputEvent:
 	var InputType = define_event_type(old_event)
 	var input_list = InputMap.get_action_list(action)
 	for event in input_list:
-		if event is InputType:
+		if InputType != null and event is InputType:
 			return event
 	return old_event
 
